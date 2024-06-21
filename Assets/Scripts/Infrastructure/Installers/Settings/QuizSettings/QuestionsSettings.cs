@@ -4,7 +4,7 @@ using UnityEditor.UI;
 using UnityEngine;
 
 [System.Serializable]
-public class QuestionsSettings
+public struct QuestionsSettings
 {
     [SerializeField] private TextAsset filePath;
 

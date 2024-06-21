@@ -17,6 +17,14 @@ namespace UI.UIPanels
            ClickedPanel?.Invoke();
         }
 
+        public void Initialize(IPersonSettings enemySettings, IPersonSettings playerSettings)
+        {
+            playerName.text = playerSettings.Name;
+            playerName.color =playerSettings.Color;
+            _name = enemySettings.Name;
+            enemyName.color = enemySettings.Color;
+        }
+
         private void OnEnable()
         {
             HideButton();
@@ -30,16 +38,6 @@ namespace UI.UIPanels
                      {
                          ShowButton();
                      });
-        }
-
-        public void InitializeEnemy(string enemy)
-        {
-            _name = enemy;
-        }
-
-        public void InitializePlayer(string player)
-        {
-            playerName.text = player;
         }
     }
 }

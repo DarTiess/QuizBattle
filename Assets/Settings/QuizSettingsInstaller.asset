@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaf4c51160fe3a2449415863942025de, type: 3}
-  m_Name: EnemySettingsInstaller
+  m_Name: QuizSettingsInstaller
   m_EditorClassIdentifier: 
   EnemySettings:
     enemyNamesFile: {fileID: 4900000, guid: 3485cba1619c2db4eaf632d4a0d53678, type: 3}
+    color: {r: 0.9622642, g: 0.4228474, b: 0.013616921, a: 1}
     names:
     - Susan
     - Robert
@@ -23,3 +24,5 @@ MonoBehaviour:
     - Stanly
     - David
     - Brandford
+  PlayerSettings:
+    color: {r: 0, g: 1, b: 0.98041606, a: 1}

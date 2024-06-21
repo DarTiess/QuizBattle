@@ -1,3 +1,4 @@
+using DefaultNamespace;
 using Infrastructure.Level;
 using Infrastructure.Level.EventsBus;
 using UnityEngine;
@@ -9,6 +10,12 @@ public class GlobalInstaller : MonoInstaller
     {
         CreateEventBus();
         CreateLevelLoader();
+        CreateQuizHandler();
+    }
+
+    private void CreateQuizHandler()
+    {
+        Container.BindInterfacesAndSelfTo<QuizHandler>().AsSingle();
     }
 
     private void CreateEventBus()

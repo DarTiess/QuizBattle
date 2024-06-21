@@ -1,11 +1,28 @@
 { "questions":[{
 	"quest":"How old you",
-	"answers":["23","245","37","13"],
-	"rightAnswerNumber":1
+	"answers":[{
+		"description":"23",
+	    "rightVariant":true},
+		{"description":"25",
+		"rightVariant":false},
+		{"description":"34",
+		"rightVariant":false},
+		{"description":"27",
+		"rightVariant":false}],
+		"coins":2
 },
 {
-	"quest":"How efwefdfgsd",
-	"answers":["23","245","37","13"],
-	"rightAnswerNumber":1
+	"quest":"How rrrrrr",
+	"answers":[{
+		"description":"5454",
+	    "rightVariant":true},
+		{"description":"5454",
+		"rightVariant":false},
+		{"description":"22",
+		"rightVariant":false},
+		{"description":"77",
+		"rightVariant":false}],
+		"coins":3
 }
+
 ]}

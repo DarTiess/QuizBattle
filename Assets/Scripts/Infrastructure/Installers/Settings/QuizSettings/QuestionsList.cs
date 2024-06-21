@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public class QuestionsList
+public struct QuestionsList
 {
     [SerializeField] private Question[] questions;
 

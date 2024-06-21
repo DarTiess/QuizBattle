@@ -18,7 +18,6 @@ namespace UI.UIPanels
 
         protected void HideButton()
         {
-            Debug.Log("Hide btn");
             button.interactable = false;
         }
 
