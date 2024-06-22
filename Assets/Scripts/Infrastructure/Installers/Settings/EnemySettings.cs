@@ -32,7 +32,6 @@ public class EnemySettings: IPersonSettings
     public void Current()
     {
         int rnd = Random.Range(0, Names.Length);
-        Debug.Log(Names[rnd]);
         _coins = 0;
         _currentEnemy= Names[rnd];
     }

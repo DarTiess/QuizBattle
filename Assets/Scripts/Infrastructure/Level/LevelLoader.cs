@@ -1,4 +1,5 @@
-﻿using Infrastructure.Level.EventsBus;
+﻿using System.Threading.Tasks;
+using Infrastructure.Level.EventsBus;
 using Infrastructure.Level.EventsBus.Signals;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -60,6 +61,12 @@ namespace Infrastructure.Level
 
         private void RestartScene(RestartGame obj)
         {
+            Restart();
+        }
+
+        private async Task Restart()
+        {
+            await Task.Delay(1000);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

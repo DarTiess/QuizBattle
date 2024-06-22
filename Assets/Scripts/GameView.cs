@@ -50,7 +50,7 @@ public class GameView : MonoBehaviour
         gameplayPanel.RestartBot += OnRestartBot;
         gameplayPanel.CompleteQuiz += OnCompleteQuiz;
         loosePanel.ClickedPanel += RestartGame;
-        winPanel.ClickedPanel += LoadNextLevel;
+        winPanel.ClickedPanel += RestartGame;
         EnterGame();
     }
 
@@ -73,7 +73,7 @@ public class GameView : MonoBehaviour
         gameplayPanel.ClickedPanel -= OnPauseGame;
         gameplayPanel.PlayerMakeAnswer -= OnPlayerAnswer;
        
-        winPanel.ClickedPanel -= LoadNextLevel;
+        winPanel.ClickedPanel -= RestartGame;
     }
 
     private void OnRestartBot()
@@ -85,6 +85,7 @@ public class GameView : MonoBehaviour
     {
         Debug.Log("Level Win"); 
         HideAllPanels();
+        winPanel.Initialize(_playerSettings);
         winPanel.Show();  
     }
 
@@ -92,6 +93,7 @@ public class GameView : MonoBehaviour
     {
         Debug.Log("Level Lost");  
         HideAllPanels();
+        loosePanel.Initialize(_playerSettings);
         loosePanel.Show();
     }
 

@@ -105,7 +105,7 @@ namespace UI.UIPanels
             foreach (AnswerView answer in answers)
             {
                 answer.SwitchEnable(false);
-              //  answer.MakeAnswer -= PlayerAnswer;
+                answer.MakeAnswer -= PlayerAnswer;
             }
             PlayerMakeAnswer?.Invoke(isRighnt, _quest[_index].Coins);
         }

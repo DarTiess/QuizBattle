@@ -25,6 +25,7 @@ public class AnswerView : MonoBehaviour
     {
         _answer = answer;
         answerText.text = answer.Description;
+        _backGround = GetComponent<Image>();
         _backGround.color = startColor;
       
         _button = GetComponent<Button>();

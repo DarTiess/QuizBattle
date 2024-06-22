@@ -25,10 +25,19 @@ namespace DefaultNamespace
         public QuizHandler(IEventBus eventBus, QuestionsSettings questionsSettings, PlayerSettings playerSettings, EnemySettings enemySettings)
         {
             _eventBus = eventBus;
+            
+            _eventBus.Subscribe<RestartGame>(ClearAll);
             _quizSettings = questionsSettings;
             
             _playerSettings = playerSettings;
             _enemySettings = enemySettings;
+        }
+
+        private void ClearAll(RestartGame obj)
+        {
+            _playerSettings.Coins = 0;
+            _playerCoins = 0;
+            _enemySettings.Coins = 0;
         }
 
         public void PlayerAnswer(bool isRight, int coins)
