@@ -1,16 +1,18 @@
-﻿using System;
+﻿using Infrastructure.EventsBus;
+using Infrastructure.EventsBus.Signals;
 using Infrastructure.Level;
-using Infrastructure.Level.EventsBus;
-using Infrastructure.Level.EventsBus.Signals;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
-namespace DefaultNamespace.Infrastructure
+namespace Infrastructure
 {
     public class Bootstrap: MonoBehaviour
     {
-       [SerializeField] private ParticleSystem _winEffect;
-       [SerializeField] private ParticleSystem _looseEffect;
+       [FormerlySerializedAs("_winEffect")]
+       [SerializeField] private ParticleSystem winEffect;
+       [FormerlySerializedAs("_looseEffect")]
+       [SerializeField] private ParticleSystem looseEffect;
         private IEventBus _eventBus;
         private LevelLoader _levelLoader;
 
@@ -25,19 +27,18 @@ namespace DefaultNamespace.Infrastructure
         {
             _eventBus.Subscribe<LevelWin>(OnLevelWin);
             _eventBus.Subscribe<LevelLost>(OnLevelLost);
-            //_winEffect = gameObject.GetComponentInChildren<ParticleSystem>();
             
             DontDestroyOnLoad(this);
         }
 
         private void OnLevelLost(LevelLost obj)
         {
-            _looseEffect.Play();
+            looseEffect.Play();
         }
 
         private void OnLevelWin(LevelWin obj)
         {
-            _winEffect.Play();
+            winEffect.Play();
         }
     }
 }

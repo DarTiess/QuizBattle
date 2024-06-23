@@ -1,14 +1,16 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-[System.Serializable]
-public struct Question
+namespace Infrastructure.Installers.Settings.QuizSettings
 {
-    [SerializeField] private string quest;
-    [SerializeField] private Answer[] answers;
-    [SerializeField] private int coins;
-    public string Quest=>quest;
-    public Answer[] Answers=>answers;
-    public int Coins => coins;
+    [System.Serializable]
+    public struct Question
+    {
+        [SerializeField] private string quest;
+        [SerializeField] private Answer[] answers;
+        [SerializeField] private int coins;
+        public string Quest=>quest;
+        public Answer[] Answers=>answers;
+        public int Coins => coins;
 
+    }
 }

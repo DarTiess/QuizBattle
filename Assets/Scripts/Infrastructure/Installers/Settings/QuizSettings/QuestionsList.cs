@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 
-[System.Serializable]
-public struct QuestionsList
+namespace Infrastructure.Installers.Settings.QuizSettings
 {
-    [SerializeField] private Question[] questions;
+    [System.Serializable]
+    public struct QuestionsList
+    {
+        [SerializeField] private Question[] questions;
 
-    public Question[] Questions=>questions;
+        public Question[] Questions=>questions;
 
+    }
 }

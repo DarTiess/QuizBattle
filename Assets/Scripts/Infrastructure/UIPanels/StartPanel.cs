@@ -1,10 +1,11 @@
 ﻿using System;
 using DG.Tweening;
+using Infrastructure.Installers.Settings;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.UIPanels
+namespace Infrastructure.UIPanels
 {
     public class StartPanel : PanelBase
     {
@@ -12,6 +13,13 @@ namespace UI.UIPanels
         [SerializeField] private Text enemyName;
         private string _name;
         public override event Action ClickedPanel;
+
+        private void OnEnable()
+        {
+            HideButton();
+            ChooseEnemyName();
+        }
+
         protected override void OnClickedPanel()
         {
            ClickedPanel?.Invoke();
@@ -23,12 +31,6 @@ namespace UI.UIPanels
             playerName.color =playerSettings.Color;
             _name = enemySettings.Name;
             enemyName.color = enemySettings.Color;
-        }
-
-        private void OnEnable()
-        {
-            HideButton();
-            ChooseEnemyName();
         }
 
         private void ChooseEnemyName()

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace UI.UIPanels
+namespace Infrastructure.UIPanels
 {
     public abstract class PanelBase : MonoBehaviour
     {
@@ -14,16 +14,6 @@ namespace UI.UIPanels
         private void Start()
         {
             button.onClick.AddListener(OnClickedPanel);
-        }
-
-        protected void HideButton()
-        {
-            button.interactable = false;
-        }
-
-        protected void ShowButton()
-        {
-            button.interactable=true;
         }
 
         public void Hide()
@@ -39,6 +29,16 @@ namespace UI.UIPanels
         protected virtual void OnClickedPanel()
         {
           
+        }
+
+        protected void HideButton()
+        {
+            button.interactable = false;
+        }
+
+        protected void ShowButton()
+        {
+            button.interactable=true;
         }
     }
 }

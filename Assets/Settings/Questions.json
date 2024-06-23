@@ -1,28 +1,67 @@
 { "questions":[{
-	"quest":"How old you",
+	"quest":"Who among these celebrities was the first cosmonaut?",
 	"answers":[{
-		"description":"23",
+		"description":"Yuri Gagarin",
 	    "rightVariant":true},
-		{"description":"25",
+		{"description":"Neil Armstrong",
 		"rightVariant":false},
-		{"description":"34",
+		{"description":"Eugene Cernan",
 		"rightVariant":false},
-		{"description":"27",
+		{"description":"John Glenn",
 		"rightVariant":false}],
 		"coins":2
 },
 {
-	"quest":"How rrrrrr",
+	"quest":"Which of these movies won the Oscar for Best Picture in 2023?",
 	"answers":[{
-		"description":"5454",
-	    "rightVariant":true},
-		{"description":"5454",
+		"description":"Scarface",
+	    "rightVariant":false},
+		{"description":"Unforgiven",
 		"rightVariant":false},
-		{"description":"22",
+		{"description":"The Man Who Made Women Cry",
 		"rightVariant":false},
-		{"description":"77",
-		"rightVariant":false}],
+		{"description":"The House That Jack Built",
+		"rightVariant":true}],
 		"coins":3
+},
+{
+	"quest":"Who is the author of the novel 'Crime and Punishment'?",
+	"answers":[{
+		"description":"Fyodor Dostoevsky",
+	    "rightVariant":true},
+		{"description":"Leo Tolstoy",
+		"rightVariant":false},
+		{"description":"Ivan Turgenev",
+		"rightVariant":false},
+		{"description":"Alexander Pushkin",
+		"rightVariant":false}],
+		"coins":4
+},
+{
+	"quest":"Which of these cities is the capital of Italy?",
+	"answers":[{
+		"description":"Paris",
+	    "rightVariant":false},
+		{"description":"Madrid",
+		"rightVariant":false},
+		{"description":"Rome",
+		"rightVariant":true},
+		{"description":"Amsterdam",
+		"rightVariant":false}],
+		"coins":5
+},
+{
+	"quest":"Who wrote the song 'Bohemian Rhapsody'?",
+	"answers":[{
+		"description":"The Beatles",
+	    "rightVariant":false},
+		{"description":"Queen",
+		"rightVariant":true},
+		{"description":"Led Zeppelin",
+		"rightVariant":false},
+		{"description":"Pink Floyd",
+		"rightVariant":false}],
+		"coins":7
 }
 
 ]}

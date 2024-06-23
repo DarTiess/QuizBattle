@@ -1,7 +1,8 @@
-using DefaultNamespace;
-using Infrastructure.Level.EventsBus;
-using Infrastructure.Level.EventsBus.Signals;
-using UI.UIPanels;
+using Infrastructure.EventsBus;
+using Infrastructure.EventsBus.Signals;
+using Infrastructure.Installers.Settings;
+using Infrastructure.Installers.Settings.QuizSettings;
+using Infrastructure.UIPanels;
 using UnityEngine;
 using Zenject;
 
@@ -13,6 +14,11 @@ public class GameView : MonoBehaviour
     [SerializeField] private GameplayPanel gameplayPanel;
     [SerializeField] private WinPanel winPanel;  
     [SerializeField] private LoosePanel loosePanel;
+    [Header("Animation")]
+    [SerializeField] private float animationDuration;
+    [SerializeField] private float animationScale;
+    [SerializeField]private float rotateAngle;
+  
     private IEventBus _eventBus;
     private EnemySettings _enemySettings;
     private QuestionsSettings _questSettingz;
@@ -54,11 +60,6 @@ public class GameView : MonoBehaviour
         EnterGame();
     }
 
-    private void OnCompleteQuiz()
-    {
-        _quizHandler.CompleteQuiz();
-    }
-
     private void OnDisable()
     {
         _eventBus.Unsubscribe<LevelStart>(OnEnterGame);
@@ -76,16 +77,11 @@ public class GameView : MonoBehaviour
         winPanel.ClickedPanel -= RestartGame;
     }
 
-    private void OnRestartBot()
-    {
-        _quizHandler.StartBot(gameplayPanel.QuestIndex);
-    }
-
     private void OnLevelWin(LevelWin obj)
     {
         Debug.Log("Level Win"); 
         HideAllPanels();
-        winPanel.Initialize(_playerSettings);
+        winPanel.Initialize(animationDuration,rotateAngle,_playerSettings);
         winPanel.Show();  
     }
 
@@ -93,7 +89,7 @@ public class GameView : MonoBehaviour
     {
         Debug.Log("Level Lost");  
         HideAllPanels();
-        loosePanel.Initialize(_playerSettings);
+        loosePanel.Initialize(animationDuration,rotateAngle,_playerSettings);
         loosePanel.Show();
     }
 
@@ -105,6 +101,16 @@ public class GameView : MonoBehaviour
     private void ChooseCompleted(FinishChoosing obj)
     {
         gameplayPanel.DisplayRightAnswer();
+    }
+
+    private void OnCompleteQuiz()
+    {
+        _quizHandler.CompleteQuiz();
+    }
+
+    private void OnRestartBot()
+    {
+        _quizHandler.StartBot(gameplayPanel.QuestIndex);
     }
 
     private void OnStartGame() { }
@@ -127,7 +133,7 @@ public class GameView : MonoBehaviour
        
        enterPanel.InputName -= OnInputName;
         startPanel.Initialize(_enemySettings, _playerSettings);
-        gameplayPanel.Initialize(_playerSettings, _enemySettings);
+        gameplayPanel.Initialize(animationDuration, animationScale,rotateAngle,_playerSettings, _enemySettings);
        
         HideAllPanels();
        startPanel.Show();
@@ -150,10 +156,6 @@ public class GameView : MonoBehaviour
         gameplayPanel.InitializeQuiz(_questSettingz.Questions);
         gameplayPanel.Show();
         _quizHandler.StartBot(gameplayPanel.QuestIndex);
-    }
-    private void LoadNextLevel()
-    {
-        _eventBus.Invoke(new NextLevel());
     }
 
     private void RestartGame()

@@ -1,12 +1,15 @@
 using UnityEngine;
 using Zenject;
 
-[CreateAssetMenu(fileName = "QuestionsSettingsInstaller", menuName = "Installers/QuestionsSettingsInstaller")]
-public class QuestionsSettingsInstaller : ScriptableObjectInstaller<QuestionsSettingsInstaller>
+namespace Infrastructure.Installers.Settings.QuizSettings
 {
-    public QuestionsSettings QuestionsSettings;
-    public override void InstallBindings()
+    [CreateAssetMenu(fileName = "QuestionsSettingsInstaller", menuName = "Installers/QuestionsSettingsInstaller")]
+    public class QuestionsSettingsInstaller : ScriptableObjectInstaller<QuestionsSettingsInstaller>
     {
-        Container.BindInstance(QuestionsSettings);
+        public QuestionsSettings QuestionsSettings;
+        public override void InstallBindings()
+        {
+            Container.BindInstance(QuestionsSettings);
+        }
     }
 }

@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace UI.UIPanels
+namespace Infrastructure.UIPanels
 {
     public class EnterPanel : PanelBase
     {

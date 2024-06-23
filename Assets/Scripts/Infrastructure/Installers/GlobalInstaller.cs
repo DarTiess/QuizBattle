@@ -1,30 +1,31 @@
-using DefaultNamespace;
+using Infrastructure.EventsBus;
 using Infrastructure.Level;
-using Infrastructure.Level.EventsBus;
-using UnityEngine;
 using Zenject;
 
-public class GlobalInstaller : MonoInstaller
+namespace Infrastructure.Installers
 {
-    public override void InstallBindings()
+    public class GlobalInstaller : MonoInstaller
     {
-        CreateEventBus();
-        CreateLevelLoader();
-        CreateQuizHandler();
-    }
+        public override void InstallBindings()
+        {
+            CreateEventBus();
+            CreateLevelLoader();
+            CreateQuizHandler();
+        }
 
-    private void CreateQuizHandler()
-    {
-        Container.BindInterfacesAndSelfTo<QuizHandler>().AsSingle();
-    }
+        private void CreateQuizHandler()
+        {
+            Container.BindInterfacesAndSelfTo<QuizHandler>().AsSingle();
+        }
 
-    private void CreateEventBus()
-    {
-        Container.BindInterfacesAndSelfTo<EventBus>().AsSingle();
-    }
+        private void CreateEventBus()
+        {
+            Container.BindInterfacesAndSelfTo<EventBus>().AsSingle();
+        }
     
-    private void CreateLevelLoader()
-    {
-        Container.BindInterfacesAndSelfTo<LevelLoader>().AsSingle();
+        private void CreateLevelLoader()
+        {
+            Container.BindInterfacesAndSelfTo<LevelLoader>().AsSingle();
+        }
     }
 }

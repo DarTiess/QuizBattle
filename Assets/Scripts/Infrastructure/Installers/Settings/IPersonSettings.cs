@@ -1,9 +1,14 @@
 using UnityEngine;
 
-public interface IPersonSettings
+namespace Infrastructure.Installers.Settings
 {
-    Color Color { get; }
-    string Letter { get; }
-     string Name { get; }
-     int Coins { get; set; }
+    public interface IPersonSettings
+    {
+        Color Color { get; }
+        string Letter { get; }
+        string Name { get; }
+        int Coins { get; set; }
+        int Speed { get; }
+        int MaxTimeToAnswer { get; }
+    }
 }

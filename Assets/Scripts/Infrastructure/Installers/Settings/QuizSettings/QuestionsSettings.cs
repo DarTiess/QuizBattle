@@ -1,23 +1,23 @@
-﻿using System;
-using System.IO;
-using UnityEditor.UI;
-using UnityEngine;
+﻿using UnityEngine;
 
-[System.Serializable]
-public struct QuestionsSettings
+namespace Infrastructure.Installers.Settings.QuizSettings
 {
-    [SerializeField] private TextAsset filePath;
-
-    [SerializeField] private QuestionsList questionsList;
-    public QuestionsList Questions
+    [System.Serializable]
+    public struct QuestionsSettings
     {
-        get
+        [SerializeField] private TextAsset filePath;
+
+        [SerializeField] private QuestionsList questionsList;
+        public QuestionsList Questions
         {
-            string json= filePath.text;
-            questionsList = JsonUtility.FromJson<QuestionsList>(json);
-            return questionsList;
+            get
+            {
+                string json= filePath.text;
+                questionsList = JsonUtility.FromJson<QuestionsList>(json);
+                return questionsList;
+            }
         }
+
+
     }
-
-
 }

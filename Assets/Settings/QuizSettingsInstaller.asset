@@ -15,6 +15,7 @@ MonoBehaviour:
   EnemySettings:
     enemyNamesFile: {fileID: 4900000, guid: 3485cba1619c2db4eaf632d4a0d53678, type: 3}
     color: {r: 0.9622642, g: 0.4228474, b: 0.013616921, a: 1}
+    maxTimeToAnswer: 5
     names:
     - Susan
     - Robert
@@ -24,5 +25,8 @@ MonoBehaviour:
     - Stanly
     - David
     - Brandford
+    _speed: 0
   PlayerSettings:
     color: {r: 0, g: 1, b: 0.98041606, a: 1}
+    maxTimeToAnswer: 5
+    _speed: 0

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using Infrastructure.Level.EventsBus;
-using Infrastructure.Level.EventsBus.Signals;
+using Infrastructure.EventsBus;
+using Infrastructure.EventsBus.Signals;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,16 +10,6 @@ namespace Infrastructure.Level
     {
         private readonly LevelSettings _settings;
         private readonly IEventBus _eventBus;
-
-        public LevelLoader(LevelSettings settings, IEventBus eventBus)
-        {
-            _settings = settings;
-            _eventBus = eventBus;
-            
-            _eventBus.Subscribe<LevelStart>(StartGame);
-            _eventBus.Subscribe<NextLevel>(LoadNextLevel);
-            _eventBus.Subscribe<RestartGame>(RestartScene);
-        }
 
         public int NumLevel
         {
@@ -33,12 +23,19 @@ namespace Infrastructure.Level
             set { PlayerPrefs.SetInt("NumScene", value); }
         }
 
+        public LevelLoader(LevelSettings settings, IEventBus eventBus)
+        {
+            _settings = settings;
+            _eventBus = eventBus;
+            
+            _eventBus.Subscribe<LevelStart>(StartGame);
+            _eventBus.Subscribe<NextLevel>(LoadNextLevel);
+            _eventBus.Subscribe<RestartGame>(RestartScene);
+        }
+
         private void StartGame(LevelStart obj)
         {
-           // if (NumLevel == 0) NumLevel = 1;
-          //  if (NumScene == 0) NumScene = 1;
-        
-            LoadScene();    
+           LoadScene();    
         }
 
         private void LoadNextLevel(NextLevel obj)
